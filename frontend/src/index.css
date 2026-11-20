@@ -26,10 +26,130 @@
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #06B6D4;
+  background: #C6A66B;
 }
 
-/* Leaflet Dark Theme Overrides with Cyan Accents */
+/* Global Button & Interactive Utility Classes */
+.btn-primary {
+  background-color: #48151D;
+  color: #F2E8D9;
+  border: 1px solid rgba(198, 166, 107, 0.35);
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: #D4B77D;
+  color: #48151D;
+  border-color: #D4B77D;
+  box-shadow: 0 4px 14px rgba(198, 166, 107, 0.25);
+}
+.btn-primary:active:not(:disabled) {
+  background-color: #48151D;
+  color: #F2E8D9;
+  border-color: #C6A66B;
+}
+.btn-primary:disabled {
+  background-color: #847563;
+  color: #F2E8D9;
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: transparent;
+}
+
+.btn-secondary {
+  background-color: #A0927E;
+  color: #48151D;
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: #D4B77D;
+  color: #48151D;
+  box-shadow: 0 4px 14px rgba(198, 166, 107, 0.25);
+}
+.btn-secondary:active:not(:disabled) {
+  background-color: #48151D;
+  color: #F2E8D9;
+  border: 1px solid #C6A66B;
+}
+.btn-secondary:disabled {
+  background-color: #847563;
+  color: #350F15;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-cta {
+  background-color: #C6A66B;
+  color: #48151D;
+  font-weight: 800;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(198, 166, 107, 0.25);
+}
+.btn-cta:hover:not(:disabled) {
+  background-color: #D4B77D;
+  color: #350F15;
+  box-shadow: 0 6px 20px rgba(198, 166, 107, 0.4);
+  transform: translateY(-1px);
+}
+.btn-cta:active:not(:disabled) {
+  background-color: #48151D;
+  color: #F2E8D9;
+  border: 1px solid #C6A66B;
+  transform: translateY(0);
+}
+.btn-cta:disabled {
+  background-color: #847563;
+  color: #350F15;
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #C6A66B;
+  border: 1px solid #C6A66B;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-outline:hover:not(:disabled) {
+  background-color: #D4B77D;
+  color: #48151D;
+  border-color: #D4B77D;
+  box-shadow: 0 4px 14px rgba(198, 166, 107, 0.25);
+}
+.btn-outline:active:not(:disabled) {
+  background-color: #48151D;
+  color: #F2E8D9;
+  border-color: #C6A66B;
+}
+.btn-outline:disabled {
+  border-color: #847563;
+  color: #847563;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-icon {
+  background-color: #101D36;
+  border: 1px solid #182E4F;
+  color: #C6A66B;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-icon:hover:not(:disabled) {
+  background-color: #D4B77D;
+  color: #48151D;
+  border-color: #D4B77D;
+}
+.btn-icon:active:not(:disabled) {
+  background-color: #48151D;
+  color: #F2E8D9;
+  border: 1px solid #C6A66B;
+}
+
+/* Leaflet Dark Theme Overrides with Gold & Plum Accents */
 .leaflet-container {
   background: #060B14 !important;
   font-family: inherit;
@@ -40,52 +160,33 @@
 .leaflet-popup-content-wrapper {
   background: #0C1527 !important;
   color: #FFFFFF !important;
-  border: 1px solid rgba(6, 182, 212, 0.35);
+  border: 1px solid rgba(198, 166, 107, 0.45);
   border-radius: 0.75rem;
-  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(6, 182, 212, 0.15);
+  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(198, 166, 107, 0.2);
 }
 .leaflet-popup-tip {
   background: #0C1527 !important;
-  border: 1px solid rgba(6, 182, 212, 0.35);
+  border: 1px solid rgba(198, 166, 107, 0.45);
 }
 .leaflet-control-zoom a {
   background-color: #0C1527 !important;
-  color: #FFFFFF !important;
-  border-color: rgba(6, 182, 212, 0.3) !important;
+  color: #C6A66B !important;
+  border-color: rgba(198, 166, 107, 0.3) !important;
+  transition: all 0.2s ease;
 }
 .leaflet-control-zoom a:hover {
-  background-color: #13213B !important;
-  color: #06B6D4 !important;
+  background-color: #D4B77D !important;
+  color: #48151D !important;
 }
 
-/* Radar pulse animation for critical points */
-@keyframes radar-pulse {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 12px rgba(6, 182, 212, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
-  }
-}
-
-.radar-cyan {
-  animation: radar-pulse 2s infinite;
-}
-
-/* Glass panel utility with subtle cyan border */
+/* Glass panel utility */
 .glass-panel {
   background: rgba(12, 21, 39, 0.88);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(6, 182, 212, 0.22);
+  border: 1px solid rgba(198, 166, 107, 0.25);
 }
 
 .glass-panel-hover:hover {
-  border-color: rgba(6, 182, 212, 0.5);
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.12);
+  border-color: rgba(198, 166, 107, 0.5);
+  box-shadow: 0 0 20px rgba(198, 166, 107, 0.15);
 }

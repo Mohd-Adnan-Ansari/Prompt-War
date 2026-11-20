@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function KPIStatCard({ title, value, icon: Icon, changeText, color = 'cyan', subtitle, onClick }) {
+export function KPIStatCard({ title, value, icon: Icon, changeText, color = 'gold', subtitle, onClick }) {
   const colorMap = {
     red: {
       border: 'border-red-500/40 hover:border-red-500/70',
@@ -26,27 +26,39 @@ export function KPIStatCard({ title, value, icon: Icon, changeText, color = 'cya
       glow: 'shadow-emerald-500/10',
       text: 'text-emerald-400',
     },
+    gold: {
+      border: 'border-[#C6A66B]/40 hover:border-[#C6A66B]',
+      iconBg: 'bg-[#C6A66B]/15 text-[#C6A66B]',
+      glow: 'shadow-[0_0_15px_rgba(198,166,107,0.15)]',
+      text: 'text-[#C6A66B]',
+    },
+    taupe: {
+      border: 'border-[#A0927E]/40 hover:border-[#A0927E]',
+      iconBg: 'bg-[#A0927E]/15 text-[#A0927E]',
+      glow: 'shadow-[0_0_15px_rgba(160,146,126,0.12)]',
+      text: 'text-[#A0927E]',
+    },
     cyan: {
-      border: 'border-cyan-500/40 hover:border-cyan-400',
-      iconBg: 'bg-cyan-500/15 text-cyan-400',
-      glow: 'shadow-[0_0_15px_rgba(6,182,212,0.15)]',
-      text: 'text-cyan-400',
+      border: 'border-[#C6A66B]/40 hover:border-[#C6A66B]',
+      iconBg: 'bg-[#C6A66B]/15 text-[#C6A66B]',
+      glow: 'shadow-[0_0_15px_rgba(198,166,107,0.15)]',
+      text: 'text-[#C6A66B]',
     },
     sky: {
-      border: 'border-cyan-500/40 hover:border-cyan-400',
-      iconBg: 'bg-cyan-500/15 text-cyan-400',
-      glow: 'shadow-[0_0_15px_rgba(6,182,212,0.15)]',
-      text: 'text-cyan-400',
+      border: 'border-[#C6A66B]/40 hover:border-[#C6A66B]',
+      iconBg: 'bg-[#C6A66B]/15 text-[#C6A66B]',
+      glow: 'shadow-[0_0_15px_rgba(198,166,107,0.15)]',
+      text: 'text-[#C6A66B]',
     },
     purple: {
-      border: 'border-cyan-500/30 hover:border-cyan-400',
-      iconBg: 'bg-cyan-500/15 text-cyan-400',
-      glow: 'shadow-[0_0_15px_rgba(6,182,212,0.12)]',
-      text: 'text-cyan-300',
+      border: 'border-[#C6A66B]/30 hover:border-[#C6A66B]',
+      iconBg: 'bg-[#C6A66B]/15 text-[#C6A66B]',
+      glow: 'shadow-[0_0_15px_rgba(198,166,107,0.12)]',
+      text: 'text-[#D4B77D]',
     },
   };
 
-  const c = colorMap[color] || colorMap.cyan;
+  const c = colorMap[color] || colorMap.gold;
 
   return (
     <div
@@ -58,7 +70,7 @@ export function KPIStatCard({ title, value, icon: Icon, changeText, color = 'cya
       <div className="flex items-center justify-between mb-2">
         <span className="text-xs font-bold uppercase tracking-wider text-slate-300 font-mono">{title}</span>
         {Icon && (
-          <div className={`p-2 rounded-xl border border-cyan-500/20 ${c.iconBg}`}>
+          <div className={`p-2 rounded-xl border border-[#C6A66B]/20 ${c.iconBg}`}>
             <Icon className="w-5 h-5" />
           </div>
         )}
@@ -67,7 +79,7 @@ export function KPIStatCard({ title, value, icon: Icon, changeText, color = 'cya
         <span className="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">
           {value !== undefined && value !== null ? value : '--'}
         </span>
-        {changeText && <span className="text-xs text-cyan-300 font-semibold">{changeText}</span>}
+        {changeText && <span className="text-xs text-[#C6A66B] font-semibold">{changeText}</span>}
       </div>
       {subtitle && <p className="mt-1 text-xs text-slate-300 font-medium truncate">{subtitle}</p>}
     </div>

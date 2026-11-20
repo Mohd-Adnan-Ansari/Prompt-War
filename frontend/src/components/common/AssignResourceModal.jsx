@@ -50,11 +50,11 @@ export function AssignResourceModal({ isOpen, onClose, resource, onAssigned }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-      <div className="bg-[#0C1527] border border-cyan-500/30 rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden">
+      <div className="bg-[#0C1527] border border-[#C6A66B]/30 rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#182E4F] bg-[#101D36]">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 bg-cyan-500/15 text-cyan-400 rounded-xl border border-cyan-500/30">
+            <div className="p-2 bg-[#C6A66B]/15 text-[#C6A66B] rounded-xl border border-[#C6A66B]/30">
               <Truck className="w-5 h-5" />
             </div>
             <div>
@@ -74,9 +74,9 @@ export function AssignResourceModal({ isOpen, onClose, resource, onAssigned }) {
           <div className="p-3.5 bg-[#060B14] border border-[#182E4F] rounded-xl text-xs space-y-1.5">
             <div className="font-bold text-white text-sm">{resource.name}</div>
             <div className="text-slate-300">
-              <span className="text-cyan-300 font-semibold">Category:</span> {resource.category} |{' '}
-              <span className="text-cyan-300 font-semibold">Current Status:</span>{' '}
-              <span className={resource.status === 'Available' ? 'text-emerald-400 font-bold' : 'text-cyan-400 font-bold'}>
+              <span className="text-[#D4B77D] font-semibold">Category:</span> {resource.category} |{' '}
+              <span className="text-[#D4B77D] font-semibold">Current Status:</span>{' '}
+              <span className={resource.status === 'Available' ? 'text-emerald-400 font-bold' : 'text-[#C6A66B] font-bold'}>
                 {resource.status}
               </span>
             </div>
@@ -84,7 +84,7 @@ export function AssignResourceModal({ isOpen, onClose, resource, onAssigned }) {
               <span className="text-slate-300 font-medium">Station:</span> {resource.location_name}
             </div>
             {resource.assigned_incident_id && (
-              <div className="text-cyan-300 font-semibold pt-1">
+              <div className="text-[#D4B77D] font-semibold pt-1">
                 Currently Assigned to: {resource.assigned_incident_id}
               </div>
             )}
@@ -97,7 +97,7 @@ export function AssignResourceModal({ isOpen, onClose, resource, onAssigned }) {
             <select
               value={selectedIncidentId}
               onChange={(e) => setSelectedIncidentId(e.target.value)}
-              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-400"
+              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#C6A66B]"
             >
               <option value="">-- Choose an active incident --</option>
               {activeIncidents.map((inc) => (
@@ -140,7 +140,7 @@ export function AssignResourceModal({ isOpen, onClose, resource, onAssigned }) {
               <button
                 type="submit"
                 disabled={loading || !selectedIncidentId}
-                className="px-4 py-2 rounded-xl text-xs font-bold bg-cyan-500 hover:bg-cyan-400 text-slate-950 flex items-center gap-1.5 transition disabled:opacity-50 shadow-md shadow-cyan-500/20"
+                className="btn-cta px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition disabled:opacity-50"
               >
                 {loading ? 'Updating...' : 'Assign to Incident'}
               </button>

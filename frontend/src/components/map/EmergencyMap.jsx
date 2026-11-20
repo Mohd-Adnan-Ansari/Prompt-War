@@ -13,7 +13,7 @@ function createIncidentIcon(severity = 'Medium', category = 'Other') {
     Medium: '#FACC15',
     Low: '#22C55E',
   };
-  const color = colors[severity] || '#06B6D4';
+  const color = colors[severity] || '#C6A66B';
   const isCritical = severity === 'Critical';
 
   return L.divIcon({
@@ -64,7 +64,7 @@ function createResourceIcon(category, status) {
   }
 
   const isAvailable = status === 'Available';
-  const borderColor = isAvailable ? '#06B6D4' : '#64748B';
+  const borderColor = isAvailable ? '#C6A66B' : '#64748B';
 
   return L.divIcon({
     className: 'custom-resource-marker',
@@ -133,7 +133,7 @@ export function EmergencyMap({
           {/* Incidents Filters */}
           <div className="flex flex-wrap items-center gap-1.5 text-xs">
             <span className="text-[11px] font-semibold text-slate-300 uppercase tracking-wider mr-1 flex items-center gap-1">
-              <Layers className="w-3.5 h-3.5 text-cyan-400" />
+              <Layers className="w-3.5 h-3.5 text-[#C6A66B]" />
               Incidents:
             </span>
             {['All', 'Critical', 'High', 'Flood', 'Fire', 'Accident', 'Earthquake'].map((tag) => (
@@ -155,8 +155,8 @@ export function EmergencyMap({
                 className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition ${
                   (activeCategoryFilter === tag || activeSeverityFilter === tag) ||
                   (tag === 'All' && activeCategoryFilter === 'All' && activeSeverityFilter === 'All')
-                    ? 'bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/25'
-                    : 'bg-[#101D36] text-slate-200 hover:text-white border border-[#182E4F] hover:border-cyan-400/50'
+                    ? 'bg-[#C6A66B] text-[#48151D] font-bold shadow-md shadow-[#C6A66B]/25'
+                    : 'bg-[#101D36] text-slate-200 hover:text-white border border-[#182E4F] hover:border-[#C6A66B]/50'
                 }`}
               >
                 {tag}
@@ -171,11 +171,11 @@ export function EmergencyMap({
               onClick={() => setShowResources(!showResources)}
               className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition border flex items-center gap-1.5 ${
                 showResources
-                  ? 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40'
+                  ? 'bg-[#C6A66B]/20 text-[#D4B77D] border-[#C6A66B]/40'
                   : 'bg-[#101D36] text-slate-400 border-[#182E4F]'
               }`}
             >
-              <Truck className="w-3 h-3 text-cyan-400" />
+              <Truck className="w-3 h-3 text-[#C6A66B]" />
               <span>Resources ({filteredResources.length})</span>
             </button>
 
@@ -183,7 +183,7 @@ export function EmergencyMap({
               <select
                 value={resourceCategoryFilter}
                 onChange={(e) => setResourceCategoryFilter(e.target.value)}
-                className="bg-[#101D36] border border-[#182E4F] rounded-md px-2 py-1 text-[11px] text-white focus:outline-none focus:border-cyan-400"
+                className="bg-[#101D36] border border-[#182E4F] rounded-md px-2 py-1 text-[11px] text-white focus:outline-none focus:border-[#C6A66B]"
               >
                 <option value="All">All Assets</option>
                 <option value="Hospitals">Hospitals</option>
@@ -227,7 +227,7 @@ export function EmergencyMap({
             <Popup className="emergency-popup">
               <div className="p-1 space-y-2 min-w-[220px]">
                 <div className="flex items-center justify-between gap-2 border-b border-[#182E4F] pb-1.5">
-                  <span className="font-mono text-xs font-bold text-cyan-400">{inc.id}</span>
+                  <span className="font-mono text-xs font-bold text-[#C6A66B]">{inc.id}</span>
                   <SeverityBadge severity={inc.severity} />
                 </div>
                 <div>
@@ -241,7 +241,7 @@ export function EmergencyMap({
                 <div className="flex items-center gap-1.5 pt-1">
                   <button
                     onClick={() => navigate(`/incidents/${inc.id}`)}
-                    className="w-full text-center px-2.5 py-1.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded text-xs font-bold transition shadow-md shadow-cyan-500/20"
+                    className="w-full text-center px-2.5 py-1.5 bg-[#C6A66B] hover:bg-[#D4B77D] text-[#48151D] rounded text-xs font-bold transition shadow-md shadow-[#C6A66B]/20"
                   >
                     View Agent Analysis &rarr;
                   </button>
@@ -261,11 +261,11 @@ export function EmergencyMap({
             <Popup className="resource-popup">
               <div className="p-1 space-y-2 min-w-[210px]">
                 <div className="flex items-center justify-between border-b border-[#182E4F] pb-1.5">
-                  <span className="font-mono text-xs text-cyan-300">{res.id}</span>
+                  <span className="font-mono text-xs text-[#D4B77D]">{res.id}</span>
                   <span
                     className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
                       res.status === 'Available'
-                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30'
+                        ? 'bg-[#C6A66B]/20 text-[#D4B77D] border border-[#C6A66B]/30'
                         : 'bg-slate-800 text-slate-300 border border-slate-700'
                     }`}
                   >
@@ -278,13 +278,13 @@ export function EmergencyMap({
                   <p className="text-[11px] text-slate-300 mt-1">Cap: {res.capacity}</p>
                 </div>
                 {res.assigned_incident_id && (
-                  <div className="text-[11px] text-cyan-300 bg-cyan-950/40 p-1 rounded border border-cyan-500/30">
+                  <div className="text-[11px] text-[#D4B77D] bg-[#48151D]/30 p-1 rounded border border-[#C6A66B]/30">
                     Assigned: {res.assigned_incident_id}
                   </div>
                 )}
                 <button
                   onClick={() => onAssignResource && onAssignResource(res)}
-                  className="w-full text-center px-2 py-1 bg-[#101D36] hover:bg-[#13213B] text-white border border-[#182E4F] hover:border-cyan-400 rounded text-xs font-semibold transition"
+                  className="w-full text-center px-2 py-1 bg-[#101D36] hover:bg-[#13213B] text-white border border-[#182E4F] hover:border-[#C6A66B] rounded text-xs font-semibold transition"
                 >
                   Manage Deployment
                 </button>

@@ -69,7 +69,7 @@ export function AIAnalysisPage() {
         <div>
           <h1 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2">
             <span>AI Multi-Agent Analysis Centre</span>
-            <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">
+            <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#C6A66B]/15 text-[#C6A66B] border border-[#C6A66B]/30">
               6 Neural Agents
             </span>
           </h1>
@@ -80,7 +80,7 @@ export function AIAnalysisPage() {
 
         <button
           onClick={fetchAgentData}
-          className="px-3 py-1.5 bg-[#101D36] hover:bg-[#13213B] text-white border border-[#182E4F] hover:border-cyan-400 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition"
+          className="btn-outline px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition"
         >
           <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
           <span>Refresh Telemetry</span>
@@ -95,11 +95,11 @@ export function AIAnalysisPage() {
             className="p-4 bg-[#0C1527] border border-[#182E4F] rounded-xl space-y-2.5 shadow-lg relative overflow-hidden"
           >
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono font-bold text-cyan-400 uppercase">
+              <span className="text-[10px] font-mono font-bold text-[#C6A66B] uppercase">
                 AGENT 0{idx + 1}
               </span>
-              <span className="flex items-center gap-1 text-[11px] font-mono text-cyan-300">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span className="flex items-center gap-1 text-[11px] font-mono text-[#D4B77D]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C6A66B] animate-pulse"></span>
                 {agent.status}
               </span>
             </div>
@@ -109,7 +109,7 @@ export function AIAnalysisPage() {
 
             <div className="pt-2 border-t border-[#182E4F] flex items-center justify-between text-xs font-mono">
               <span className="text-slate-400">Processed: <strong className="text-white">{agent.total_processed}</strong></span>
-              <span className="text-cyan-400">Avg Latency: <strong className="text-cyan-300">{agent.avg_latency_ms}ms</strong></span>
+              <span className="text-[#C6A66B]">Avg Latency: <strong className="text-[#D4B77D]">{agent.avg_latency_ms}ms</strong></span>
             </div>
           </div>
         ))}
@@ -119,13 +119,13 @@ export function AIAnalysisPage() {
       <div className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-sm font-bold text-white uppercase tracking-wider font-mono flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-cyan-400" />
+            <Sparkles className="w-4 h-4 text-[#C6A66B]" />
             <span>Multi-Agent Inspection:</span>
           </h2>
           <select
             value={selectedIncident?.id}
             onChange={(e) => setSelectedIncidentId(e.target.value)}
-            className="bg-[#0C1527] border border-[#182E4F] rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-cyan-400"
+            className="bg-[#0C1527] border border-[#182E4F] rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-[#C6A66B]"
           >
             {incidents.map((inc) => (
               <option key={inc.id} value={inc.id}>
@@ -146,7 +146,7 @@ export function AIAnalysisPage() {
       <div className="bg-[#0C1527] border border-[#182E4F] rounded-2xl p-5 shadow-xl space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#182E4F] pb-3">
           <div className="flex items-center gap-2">
-            <Terminal className="w-4 h-4 text-cyan-400" />
+            <Terminal className="w-4 h-4 text-[#C6A66B]" />
             <h3 className="text-sm font-bold text-white">Live Agent Execution Stream</h3>
             <span className="text-xs text-slate-400 font-mono">({filteredLogs.length} events logged)</span>
           </div>
@@ -156,7 +156,7 @@ export function AIAnalysisPage() {
             <select
               value={logFilter}
               onChange={(e) => setLogFilter(e.target.value)}
-              className="bg-[#060B14] border border-[#182E4F] rounded-lg px-2.5 py-1 text-xs text-white focus:outline-none focus:border-cyan-400"
+              className="bg-[#060B14] border border-[#182E4F] rounded-lg px-2.5 py-1 text-xs text-white focus:outline-none focus:border-[#C6A66B]"
             >
               <option value="All">All Agents</option>
               <option value="report_collection">Report Collection</option>
@@ -173,16 +173,16 @@ export function AIAnalysisPage() {
           {filteredLogs.map((log) => (
             <div
               key={log.id}
-              className="p-3 bg-[#060B14] border border-[#182E4F] rounded-xl space-y-1 hover:border-cyan-400 transition"
+              className="p-3 bg-[#060B14] border border-[#182E4F] rounded-xl space-y-1 hover:border-[#C6A66B] transition"
             >
               <div className="flex items-center justify-between text-[11px]">
                 <div className="flex items-center gap-2">
-                  <span className="text-cyan-400 font-bold">[{log.agent_name}]</span>
+                  <span className="text-[#C6A66B] font-bold">[{log.agent_name}]</span>
                   <span className="text-slate-500">&bull;</span>
-                  <span className="text-cyan-200 font-semibold">{log.incident_id}</span>
+                  <span className="text-[#D4B77D] font-semibold">{log.incident_id}</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-400">
-                  <span className="text-cyan-300">{log.execution_time_ms}ms</span>
+                  <span className="text-[#D4B77D]">{log.execution_time_ms}ms</span>
                   <span>{new Date(log.created_at).toLocaleTimeString()}</span>
                 </div>
               </div>

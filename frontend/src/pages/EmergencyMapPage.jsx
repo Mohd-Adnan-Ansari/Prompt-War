@@ -52,7 +52,7 @@ export function EmergencyMapPage() {
         <div>
           <h1 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2">
             <span>Live Emergency GIS Map</span>
-            <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">
+            <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#C6A66B]/15 text-[#C6A66B] border border-[#C6A66B]/30">
               OpenStreetMap + Leaflet
             </span>
           </h1>
@@ -69,7 +69,7 @@ export function EmergencyMapPage() {
             </span>
             <span className="text-slate-600">|</span>
             <span className="flex items-center gap-1 font-mono">
-              <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+              <span className="w-2 h-2 rounded-full bg-[#C6A66B]"></span>
               <strong className="text-white">{resources.filter((r) => r.status === 'Available').length}</strong> Available Fleet
             </span>
           </div>
@@ -91,7 +91,7 @@ export function EmergencyMapPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Filter by title, sector..."
-                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#C6A66B]"
               />
             </div>
           </div>
@@ -105,12 +105,12 @@ export function EmergencyMapPage() {
                   onClick={() => setSelectedIncident(inc)}
                   className={`p-3 rounded-xl border transition cursor-pointer text-xs space-y-1.5 ${
                     isSelected
-                      ? 'bg-[#13213B] border-cyan-400 ring-1 ring-cyan-400/50'
-                      : 'bg-[#060B14] border-[#182E4F] hover:border-cyan-400/40 hover:bg-[#101D36]'
+                      ? 'bg-[#13213B] border-[#C6A66B] ring-1 ring-[#C6A66B]/50'
+                      : 'bg-[#060B14] border-[#182E4F] hover:border-[#C6A66B]/40 hover:bg-[#101D36]'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-mono font-bold text-cyan-400">{inc.id}</span>
+                    <span className="font-mono font-bold text-[#C6A66B]">{inc.id}</span>
                     <SeverityBadge severity={inc.severity} />
                   </div>
                   <div className="font-bold text-white leading-snug line-clamp-2">
@@ -127,7 +127,7 @@ export function EmergencyMapPage() {
                         e.stopPropagation();
                         navigate(`/incidents/${inc.id}`);
                       }}
-                      className="text-cyan-400 hover:text-cyan-300 hover:underline font-semibold"
+                      className="text-[#C6A66B] hover:text-[#D4B77D] hover:underline font-semibold"
                     >
                       View Report &rarr;
                     </button>

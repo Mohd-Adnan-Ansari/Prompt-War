@@ -92,7 +92,7 @@ export function IncidentsPage() {
         <div>
           <h1 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2">
             <span>Incident Management</span>
-            <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">
+            <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#48151D] text-[#C6A66B] border border-[#C6A66B]/40 font-bold">
               {filteredIncidents.length} Records
             </span>
           </h1>
@@ -102,18 +102,20 @@ export function IncidentsPage() {
         </div>
 
         <div className="flex items-center gap-2.5">
+          {/* Flood Demo Workflow: Secondary button */}
           <button
             onClick={() => runFloodDemo()}
-            className="px-3 py-2 bg-cyan-500/20 hover:bg-cyan-500 text-cyan-300 hover:text-slate-950 border border-cyan-500/40 rounded-xl text-xs font-bold flex items-center gap-1.5 transition"
+            className="px-3.5 py-2 btn-secondary rounded-xl text-xs flex items-center gap-1.5 transition"
           >
-            <Waves className="w-3.5 h-3.5" />
+            <Waves className="w-3.5 h-3.5 text-[#48151D]" />
             <span>Flood Demo Workflow</span>
           </button>
+          {/* Submit Emergency Report: CTA button */}
           <button
             onClick={() => setIsReportModalOpen(true)}
-            className="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded-xl text-xs font-bold shadow-lg shadow-cyan-500/25 flex items-center gap-1.5 transition"
+            className="px-4 py-2.5 btn-cta rounded-xl text-xs flex items-center gap-1.5 transition"
           >
-            <PlusCircle className="w-4 h-4" />
+            <PlusCircle className="w-4 h-4 text-[#48151D]" />
             <span>Submit Emergency Report</span>
           </button>
         </div>
@@ -130,7 +132,7 @@ export function IncidentsPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by ID, keyword, description, or location..."
-              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#C6A66B] focus:ring-1 focus:ring-[#C6A66B]"
             />
           </div>
 
@@ -139,7 +141,7 @@ export function IncidentsPage() {
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400"
+              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-[#C6A66B] focus:ring-1 focus:ring-[#C6A66B]"
             >
               <option value="All">All Categories</option>
               <option value="Flood">Flood</option>
@@ -157,7 +159,7 @@ export function IncidentsPage() {
             <select
               value={severityFilter}
               onChange={(e) => setSeverityFilter(e.target.value)}
-              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400"
+              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-[#C6A66B] focus:ring-1 focus:ring-[#C6A66B]"
             >
               <option value="All">All Severities</option>
               <option value="Critical">Critical</option>
@@ -177,7 +179,7 @@ export function IncidentsPage() {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="bg-[#060B14] border border-[#182E4F] rounded-lg px-2 py-1 text-xs text-white focus:outline-none focus:border-cyan-400"
+                className="bg-[#060B14] border border-[#182E4F] rounded-lg px-2 py-1 text-xs text-white focus:outline-none focus:border-[#C6A66B]"
               >
                 <option value="All">All Statuses</option>
                 <option value="Reported">Reported</option>
@@ -194,7 +196,7 @@ export function IncidentsPage() {
               <select
                 value={verificationFilter}
                 onChange={(e) => setVerificationFilter(e.target.value)}
-                className="bg-[#060B14] border border-[#182E4F] rounded-lg px-2 py-1 text-xs text-white focus:outline-none focus:border-cyan-400"
+                className="bg-[#060B14] border border-[#182E4F] rounded-lg px-2 py-1 text-xs text-white focus:outline-none focus:border-[#C6A66B]"
               >
                 <option value="All">All Verification</option>
                 <option value="Verified">Verified</option>
@@ -204,12 +206,12 @@ export function IncidentsPage() {
             </div>
           </div>
 
-          {/* View Mode Toggle */}
+          {/* View Mode Toggle Buttons */}
           <div className="flex items-center gap-1 bg-[#060B14] p-1 rounded-lg border border-[#182E4F]">
             <button
               onClick={() => setViewMode('table')}
-              className={`p-1.5 rounded-md ${
-                viewMode === 'table' ? 'bg-[#101D36] text-cyan-400' : 'text-slate-400 hover:text-white'
+              className={`p-1.5 rounded-md transition ${
+                viewMode === 'table' ? 'bg-[#48151D] text-[#C6A66B] border border-[#C6A66B]/50' : 'text-slate-400 hover:text-white'
               }`}
               title="Table View"
             >
@@ -217,8 +219,8 @@ export function IncidentsPage() {
             </button>
             <button
               onClick={() => setViewMode('cards')}
-              className={`p-1.5 rounded-md ${
-                viewMode === 'cards' ? 'bg-[#101D36] text-cyan-400' : 'text-slate-400 hover:text-white'
+              className={`p-1.5 rounded-md transition ${
+                viewMode === 'cards' ? 'bg-[#48151D] text-[#C6A66B] border border-[#C6A66B]/50' : 'text-slate-400 hover:text-white'
               }`}
               title="Card Grid View"
             >
@@ -258,7 +260,7 @@ export function IncidentsPage() {
                       onClick={() => navigate(`/incidents/${inc.id}`)}
                       className="hover:bg-[#13213B]/70 cursor-pointer transition"
                     >
-                      <td className="px-4 py-3 font-mono font-bold text-cyan-400 whitespace-nowrap">
+                      <td className="px-4 py-3 font-mono font-bold text-[#C6A66B] whitespace-nowrap">
                         {inc.id}
                       </td>
                       <td className="px-4 py-3">
@@ -284,7 +286,7 @@ export function IncidentsPage() {
                         <select
                           value={inc.status}
                           onChange={(e) => handleStatusChange(inc.id, e.target.value)}
-                          className="bg-[#060B14] border border-[#182E4F] rounded-md px-2 py-1 text-xs text-white focus:outline-none focus:border-cyan-400"
+                          className="bg-[#060B14] border border-[#182E4F] rounded-md px-2 py-1 text-xs text-white focus:outline-none focus:border-[#C6A66B]"
                         >
                           <option value="Reported">Reported</option>
                           <option value="Under Investigation">Under Investigation</option>
@@ -295,24 +297,27 @@ export function IncidentsPage() {
                       </td>
                       <td className="px-4 py-3 text-right whitespace-nowrap" onClick={(e) => e.stopPropagation()}>
                         <div className="flex items-center justify-end gap-1.5">
+                          {/* Re-run button: Icon button */}
                           <button
                             onClick={(e) => handleTriggerAnalysis(e, inc.id)}
                             disabled={analyzingId === inc.id}
-                            className="p-1.5 text-cyan-400 hover:text-cyan-300 bg-[#060B14] hover:bg-[#101D36] border border-[#182E4F] rounded-lg transition"
+                            className="p-1.5 rounded-lg btn-icon transition"
                             title="Re-run 6 AI Agents"
                           >
                             <Sparkles className={`w-3.5 h-3.5 ${analyzingId === inc.id ? 'animate-spin' : ''}`} />
                           </button>
+                          {/* Assistant button: Icon button */}
                           <button
                             onClick={() => openAssistantWithIncident(inc)}
-                            className="p-1.5 text-purple-300 hover:text-purple-200 bg-[#060B14] hover:bg-[#101D36] border border-[#182E4F] rounded-lg transition"
+                            className="p-1.5 rounded-lg btn-icon transition"
                             title="Analyze in Assistant"
                           >
                             <Bot className="w-3.5 h-3.5" />
                           </button>
+                          {/* Details button: Primary button */}
                           <button
                             onClick={() => navigate(`/incidents/${inc.id}`)}
-                            className="px-2.5 py-1 text-xs font-semibold bg-cyan-500/20 hover:bg-cyan-500 text-cyan-300 hover:text-slate-950 rounded-lg transition border border-cyan-500/30"
+                            className="px-2.5 py-1 text-xs btn-primary rounded-lg transition"
                           >
                             Details &rarr;
                           </button>
@@ -334,11 +339,11 @@ export function IncidentsPage() {
             <div
               key={inc.id}
               onClick={() => navigate(`/incidents/${inc.id}`)}
-              className="bg-[#0C1527] border border-[#182E4F] hover:border-cyan-400/60 rounded-2xl p-5 shadow-xl transition cursor-pointer flex flex-col justify-between space-y-4 group hover:shadow-cyan-500/10"
+              className="bg-[#0C1527] border border-[#182E4F] hover:border-[#C6A66B]/60 rounded-2xl p-5 shadow-xl transition cursor-pointer flex flex-col justify-between space-y-4 group hover:shadow-[#C6A66B]/10"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs font-bold text-cyan-400">{inc.id}</span>
+                  <span className="font-mono text-xs font-bold text-[#C6A66B]">{inc.id}</span>
                   <SeverityBadge severity={inc.severity} />
                 </div>
 
@@ -353,7 +358,7 @@ export function IncidentsPage() {
                 )}
 
                 <div>
-                  <h3 className="text-sm font-bold text-white group-hover:text-cyan-300 transition line-clamp-2">
+                  <h3 className="text-sm font-bold text-white group-hover:text-[#D4B77D] transition line-clamp-2">
                     {inc.title}
                   </h3>
                   <p className="text-xs text-slate-300 mt-1 line-clamp-2">{inc.description}</p>
@@ -375,9 +380,9 @@ export function IncidentsPage() {
 
               <div className="pt-3 border-t border-[#182E4F] flex items-center justify-between text-xs">
                 <VerificationBadge status={inc.verification_status} score={inc.confidence_score} />
-                <span className="text-cyan-400 font-semibold group-hover:translate-x-0.5 transition flex items-center gap-1">
+                <span className="text-[#C6A66B] font-semibold group-hover:translate-x-0.5 transition flex items-center gap-1">
                   <span>Inspect</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#C6A66B]" />
                 </span>
               </div>
             </div>

@@ -78,23 +78,24 @@ export function MainLayout({ children }) {
       {/* Mobile Top Header */}
       <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-[#0C1527] border-b border-[#182E4F] sticky top-0 z-40">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
-          <div className="p-1.5 bg-cyan-500/20 text-cyan-400 rounded-lg border border-cyan-500/40">
+          <div className="p-1.5 bg-[#48151D] text-[#C6A66B] rounded-lg border border-[#C6A66B]/40">
             <ShieldAlert className="w-5 h-5" />
           </div>
           <span className="font-extrabold text-base tracking-wider text-white">
-            CRISIS<span className="text-cyan-400">AI</span>
+            CRISIS<span className="text-[#C6A66B]">AI</span>
           </span>
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={() => setIsAssistantOpen(true)}
-            className="p-2 bg-cyan-500/20 text-cyan-400 rounded-lg border border-cyan-500/40 hover:bg-cyan-500 hover:text-slate-950 transition"
+            className="p-2 rounded-lg bg-[#48151D] text-[#C6A66B] border border-[#C6A66B]/40 hover:bg-[#D4B77D] hover:text-[#48151D] transition"
+            title="Open Assistant"
           >
             <Bot className="w-5 h-5" />
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-white hover:text-cyan-400"
+            className="p-2 text-white hover:text-[#C6A66B] transition"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -115,16 +116,16 @@ export function MainLayout({ children }) {
           }}
           className="flex items-center gap-3 px-2 py-3 mb-6 cursor-pointer group"
         >
-          <div className="relative p-2.5 bg-cyan-500/15 border border-cyan-500/40 text-cyan-400 rounded-xl group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition">
+          <div className="relative p-2.5 bg-[#48151D] border border-[#C6A66B]/50 text-[#C6A66B] rounded-xl group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(198,166,107,0.35)] transition">
             <ShieldAlert className="w-6 h-6" />
-            <div className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></div>
+            <div className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-[#C6A66B] animate-ping"></div>
           </div>
           <div>
             <div className="font-black text-lg tracking-wider text-white flex items-center gap-1">
-              CRISIS<span className="text-cyan-400">AI</span>
+              CRISIS<span className="text-[#C6A66B]">AI</span>
             </div>
-            <div className="text-[10px] text-cyan-300/80 font-mono tracking-tight font-medium">
-              CYAN COMMAND SUITE
+            <div className="text-[10px] text-[#C6A66B]/80 font-mono tracking-tight font-medium">
+              CRISIS COMMAND SUITE
             </div>
           </div>
         </div>
@@ -135,9 +136,9 @@ export function MainLayout({ children }) {
             setReportModalOpen(true);
             setMobileMenuOpen(false);
           }}
-          className="w-full mb-6 py-2.5 px-3 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/30 transition transform hover:-translate-y-0.5"
+          className="w-full mb-6 py-2.5 px-3 btn-primary rounded-xl text-xs flex items-center justify-center gap-2 transition"
         >
-          <PlusCircle className="w-4 h-4" />
+          <PlusCircle className="w-4 h-4 text-[#C6A66B]" />
           <span>Report Emergency</span>
         </button>
 
@@ -156,11 +157,11 @@ export function MainLayout({ children }) {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs transition-all ${
                   isActive
-                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/50 shadow-md shadow-cyan-500/10 font-bold'
-                    : 'text-slate-300 hover:text-white hover:bg-[#13213B] font-medium'
+                    ? 'bg-[#48151D] text-[#F2E8D9] border border-[#C6A66B] shadow-md shadow-[#C6A66B]/15 font-bold'
+                    : 'text-slate-300 hover:text-[#48151D] hover:bg-[#D4B77D] font-medium'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-cyan-400' : 'text-slate-400'}`} />
+                <Icon className={`w-4 h-4 ${isActive ? 'text-[#C6A66B]' : 'text-slate-400'}`} />
                 <span>{item.label}</span>
               </NavLink>
             );
@@ -170,9 +171,9 @@ export function MainLayout({ children }) {
             <NavLink
               to="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-[#13213B] transition"
+              className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-[#48151D] hover:bg-[#D4B77D] transition"
             >
-              <ExternalLink className="w-4 h-4 text-cyan-400" />
+              <ExternalLink className="w-4 h-4 text-[#C6A66B]" />
               <span>Public Landing Page</span>
             </NavLink>
           </div>
@@ -180,11 +181,11 @@ export function MainLayout({ children }) {
 
         {/* Multi-Agent System Health Widget in Sidebar */}
         <div className="mt-auto pt-4 border-t border-[#182E4F]">
-          <div className="p-3 bg-[#060B14] border border-cyan-500/30 rounded-xl text-xs space-y-2">
+          <div className="p-3 bg-[#060B14] border border-[#C6A66B]/30 rounded-xl text-xs space-y-2">
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-bold text-white">Agent Network</span>
-              <span className="flex items-center gap-1 text-[10px] text-cyan-400 font-mono font-bold">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span className="flex items-center gap-1 text-[10px] text-[#C6A66B] font-mono font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C6A66B] animate-pulse"></span>
                 ACTIVE
               </span>
             </div>
@@ -193,9 +194,9 @@ export function MainLayout({ children }) {
             </div>
             <button
               onClick={() => setIsAssistantOpen(true)}
-              className="w-full mt-1 py-1.5 bg-[#13213B] hover:bg-cyan-500/20 hover:text-cyan-300 hover:border-cyan-500/50 border border-[#182E4F] rounded-lg text-[11px] font-bold text-white flex items-center justify-center gap-1.5 transition"
+              className="w-full mt-1 py-1.5 btn-outline rounded-lg text-[11px] flex items-center justify-center gap-1.5 transition"
             >
-              <Bot className="w-3.5 h-3.5 text-cyan-400" />
+              <Bot className="w-3.5 h-3.5" />
               <span>Ask CrisisAI Assistant</span>
             </button>
           </div>
@@ -209,9 +210,9 @@ export function MainLayout({ children }) {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 text-xs font-mono">
               <span className="text-slate-400">OPERATIONAL STATUS:</span>
-              <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/40 font-bold flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                CYAN MONITORING ACTIVE
+              <span className="px-2.5 py-0.5 rounded-full bg-[#48151D] text-[#C6A66B] border border-[#C6A66B]/50 font-bold flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#C6A66B] animate-pulse"></span>
+                COMMAND NETWORK ACTIVE
               </span>
             </div>
             <div className="text-xs text-slate-300 font-mono hidden xl:block">
@@ -220,32 +221,32 @@ export function MainLayout({ children }) {
           </div>
 
           <div className="flex items-center gap-3">
-            {/* Flood Demo Button */}
+            {/* Flood Demo Button - Secondary button style */}
             <button
               onClick={handleRunFlood}
               disabled={runningFloodDemo}
-              className="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/50 hover:bg-cyan-500 hover:text-slate-950 flex items-center gap-1.5 transition shadow-sm hover:shadow-cyan-500/20"
+              className="px-3.5 py-1.5 rounded-lg text-xs btn-secondary flex items-center gap-1.5 transition shadow-sm"
               title="Runs Section 17 Flood Demonstration Workflow"
             >
-              <Waves className="w-3.5 h-3.5" />
+              <Waves className="w-3.5 h-3.5 text-[#48151D]" />
               <span>{runningFloodDemo ? 'Orchestrating Agents...' : 'Run Flood Demo'}</span>
             </button>
 
-            {/* Reset Simulation Data */}
+            {/* Reset Simulation Data - Icon button */}
             <button
               onClick={resetDemo}
-              className="p-1.5 text-slate-300 hover:text-cyan-300 bg-[#13213B] hover:bg-[#1D3055] rounded-lg border border-[#182E4F] hover:border-cyan-500/40 transition"
+              className="p-1.5 rounded-lg btn-icon transition"
               title="Reset Demo Data"
             >
               <RotateCcw className="w-4 h-4" />
             </button>
 
-            {/* CrisisAI Assistant trigger */}
+            {/* CrisisAI Assistant trigger - Outline button */}
             <button
               onClick={() => setIsAssistantOpen(true)}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#13213B] hover:bg-cyan-500/20 hover:border-cyan-500/50 text-white hover:text-cyan-300 border border-[#182E4F] flex items-center gap-1.5 transition"
+              className="px-3 py-1.5 rounded-lg text-xs btn-outline flex items-center gap-1.5 transition"
             >
-              <Bot className="w-4 h-4 text-cyan-400" />
+              <Bot className="w-4 h-4" />
               <span>Assistant</span>
             </button>
           </div>

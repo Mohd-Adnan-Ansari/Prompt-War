@@ -27,6 +27,7 @@ class ReportCollectionAgent(BaseAgent):
             missing.append("title")
             score -= 20
         if not description or len(description) < 15:
+            
             missing.append("detailed_description")
             score -= 25
         if not location_name:

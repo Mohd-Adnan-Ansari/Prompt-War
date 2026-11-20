@@ -76,24 +76,24 @@ export function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#060B14] text-white flex flex-col selection:bg-cyan-500 selection:text-slate-950">
+    <div className="min-h-screen bg-[#060B14] text-white flex flex-col selection:bg-[#C6A66B] selection:text-[#48151D]">
       {/* Top Banner */}
-      <div className="bg-cyan-950/40 border-b border-cyan-500/30 px-4 py-2 text-center text-xs text-cyan-300 flex items-center justify-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+      <div className="bg-[#48151D]/60 border-b border-[#C6A66B]/30 px-4 py-2 text-center text-xs text-[#F2E8D9] flex items-center justify-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-[#C6A66B] animate-pulse"></span>
         <span>
-          <strong>CrisisAI Demonstration Prototype:</strong> Autonomous Multi-Agent Command & Disaster Response Coordination
+          <strong className="text-[#C6A66B]">CrisisAI Command Platform:</strong> Autonomous Multi-Agent Command & Disaster Response Coordination
         </span>
       </div>
 
       {/* Navigation */}
       <header className="max-w-7xl mx-auto w-full px-6 py-5 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 bg-red-500/20 border border-red-500/40 text-red-400 rounded-xl shadow-lg shadow-red-500/10">
+          <div className="p-2.5 bg-[#48151D] border border-[#C6A66B]/40 text-[#C6A66B] rounded-xl shadow-lg shadow-[#48151D]/40">
             <ShieldAlert className="w-6 h-6" />
           </div>
           <div>
             <div className="text-xl font-black tracking-wider text-white">
-              CRISIS<span className="text-cyan-400">AI</span>
+              CRISIS<span className="text-[#C6A66B]">AI</span>
             </div>
             <div className="text-[10px] text-slate-400 font-mono">
               MULTI-AGENT CRISIS COMMAND CENTRE
@@ -102,12 +102,13 @@ export function LandingPage() {
         </div>
 
         <div className="flex items-center gap-3">
+          {/* Launch Command Centre: CTA Button */}
           <button
             onClick={() => navigate('/dashboard')}
-            className="px-4 py-2 rounded-xl text-xs font-bold bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-500/25 flex items-center gap-2 transition"
+            className="px-5 py-2.5 rounded-xl text-xs btn-cta flex items-center gap-2 transition"
           >
             <span>Launch Command Centre</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-[#48151D]" />
           </button>
         </div>
       </header>
@@ -116,18 +117,18 @@ export function LandingPage() {
       <section className="relative px-6 py-16 sm:py-24 max-w-5xl mx-auto text-center">
         {/* Background ambient radial glow */}
         <div className="absolute inset-0 -z-10 flex items-center justify-center">
-          <div className="w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="w-[300px] h-[300px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="w-[500px] h-[500px] bg-[#C6A66B]/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="w-[300px] h-[300px] bg-[#48151D]/20 rounded-full blur-3xl pointer-events-none"></div>
         </div>
 
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0C1527] border border-cyan-500/40 text-cyan-400 text-xs font-mono mb-6 shadow-sm">
-          <Sparkles className="w-3.5 h-3.5" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0C1527] border border-[#C6A66B]/40 text-[#C6A66B] text-xs font-mono mb-6 shadow-sm">
+          <Sparkles className="w-3.5 h-3.5 text-[#C6A66B]" />
           <span>Next-Gen Disaster Response Intelligence</span>
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
           Intelligent Multi-Agent{' '}
-          <span className="bg-gradient-to-r from-cyan-400 via-teal-200 to-white bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#C6A66B] via-[#D4B77D] to-[#F2E8D9] bg-clip-text text-transparent">
             Crisis Command Centre
           </span>
         </h1>
@@ -140,22 +141,24 @@ export function LandingPage() {
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4">
+          {/* Open Command Centre: CTA Button */}
           <button
             onClick={() => navigate('/dashboard')}
-            className="px-6 py-3.5 rounded-xl text-sm font-bold bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-xl shadow-cyan-500/25 flex items-center gap-2.5 transition transform hover:-translate-y-0.5"
+            className="px-7 py-3.5 rounded-xl text-sm btn-cta flex items-center gap-2.5 transition"
           >
             <span>Open Command Centre</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-[#48151D]" />
           </button>
 
+          {/* Run Flood Demo Scenario: Primary Button */}
           <button
             onClick={async () => {
               await runFloodDemo();
               navigate('/dashboard');
             }}
-            className="px-6 py-3.5 rounded-xl text-sm font-bold bg-[#0C1527] hover:bg-[#13213B] text-white border border-[#182E4F] hover:border-cyan-400 flex items-center gap-2.5 transition"
+            className="px-7 py-3.5 rounded-xl text-sm btn-primary flex items-center gap-2.5 transition"
           >
-            <Waves className="w-4 h-4 text-cyan-400" />
+            <Waves className="w-4 h-4 text-[#C6A66B]" />
             <span>Run Flood Demo Scenario</span>
           </button>
         </div>
@@ -163,7 +166,7 @@ export function LandingPage() {
         {/* Live Simulation Indicators */}
         <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
           <div className="p-3 bg-[#0C1527] border border-[#182E4F] rounded-xl text-center">
-            <div className="text-xl font-bold font-mono text-cyan-400">6 Specialized</div>
+            <div className="text-xl font-bold font-mono text-[#C6A66B]">6 Specialized</div>
             <div className="text-[11px] text-slate-400">Collaborative AI Agents</div>
           </div>
           <div className="p-3 bg-[#0C1527] border border-[#182E4F] rounded-xl text-center">
@@ -171,7 +174,7 @@ export function LandingPage() {
             <div className="text-[11px] text-slate-400">Multi-Agent Latency</div>
           </div>
           <div className="p-3 bg-[#0C1527] border border-[#182E4F] rounded-xl text-center">
-            <div className="text-xl font-bold font-mono text-cyan-300">0–100%</div>
+            <div className="text-xl font-bold font-mono text-[#D4B77D]">0–100%</div>
             <div className="text-[11px] text-slate-400">Confidence Calibration</div>
           </div>
           <div className="p-3 bg-[#0C1527] border border-[#182E4F] rounded-xl text-center">
@@ -185,7 +188,7 @@ export function LandingPage() {
       <section className="px-6 py-16 bg-[#0C1527] border-y border-[#182E4F]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider mb-2">
+            <div className="text-xs font-mono font-bold text-[#C6A66B] uppercase tracking-wider mb-2">
               Architecture & Collaboration
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
@@ -203,18 +206,18 @@ export function LandingPage() {
               return (
                 <div
                   key={agent.id}
-                  className="bg-[#060B14] border border-[#182E4F] hover:border-cyan-400/60 rounded-2xl p-6 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-cyan-500/10 group"
+                  className="bg-[#060B14] border border-[#182E4F] hover:border-[#C6A66B]/60 rounded-2xl p-6 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-[#C6A66B]/10 group"
                 >
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono font-bold text-cyan-400">
+                    <span className="text-xs font-mono font-bold text-[#C6A66B]">
                       AGENT {agent.id}
                     </span>
-                    <div className="p-2.5 bg-[#101D36] text-cyan-400 rounded-xl border border-[#182E4F] group-hover:border-cyan-400 transition">
+                    <div className="p-2.5 bg-[#48151D] text-[#C6A66B] rounded-xl border border-[#C6A66B]/30 group-hover:border-[#C6A66B] transition">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
                   <h3 className="text-base font-bold text-white mb-1">{agent.name}</h3>
-                  <div className="text-xs text-cyan-300 font-semibold mb-3">{agent.role}</div>
+                  <div className="text-xs text-[#D4B77D] font-semibold mb-3">{agent.role}</div>
                   <p className="text-xs text-slate-300 leading-relaxed">{agent.description}</p>
                 </div>
               );
@@ -232,7 +235,7 @@ export function LandingPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 bg-[#0C1527] border border-[#182E4F] hover:border-cyan-400/50 rounded-2xl space-y-3 transition">
+          <div className="p-6 bg-[#0C1527] border border-[#182E4F] hover:border-[#C6A66B]/50 rounded-2xl space-y-3 transition">
             <div className="p-3 bg-red-500/15 text-red-400 rounded-xl w-fit border border-red-500/30">
               <MapPin className="w-6 h-6" />
             </div>
@@ -243,8 +246,8 @@ export function LandingPage() {
             </p>
           </div>
 
-          <div className="p-6 bg-[#0C1527] border border-[#182E4F] hover:border-cyan-400/50 rounded-2xl space-y-3 transition">
-            <div className="p-3 bg-cyan-500/15 text-cyan-400 rounded-xl w-fit border border-cyan-500/30">
+          <div className="p-6 bg-[#0C1527] border border-[#182E4F] hover:border-[#C6A66B]/50 rounded-2xl space-y-3 transition">
+            <div className="p-3 bg-[#48151D] text-[#C6A66B] rounded-xl w-fit border border-[#C6A66B]/30">
               <Bot className="w-6 h-6" />
             </div>
             <h3 className="text-base font-bold text-white">Grounded AI Assistant</h3>
@@ -254,8 +257,8 @@ export function LandingPage() {
             </p>
           </div>
 
-          <div className="p-6 bg-[#0C1527] border border-[#182E4F] hover:border-cyan-400/50 rounded-2xl space-y-3 transition">
-            <div className="p-3 bg-cyan-500/15 text-cyan-300 rounded-xl w-fit border border-cyan-500/30">
+          <div className="p-6 bg-[#0C1527] border border-[#182E4F] hover:border-[#C6A66B]/50 rounded-2xl space-y-3 transition">
+            <div className="p-3 bg-[#48151D] text-[#D4B77D] rounded-xl w-fit border border-[#C6A66B]/30">
               <Truck className="w-6 h-6" />
             </div>
             <h3 className="text-base font-bold text-white">Tactical Resource Dispatch</h3>

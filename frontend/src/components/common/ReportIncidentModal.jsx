@@ -139,11 +139,11 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
-      <div className="bg-[#0C1527] border border-cyan-500/30 rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden my-8">
+      <div className="bg-[#0C1527] border border-[#C6A66B]/30 rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden my-8">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#182E4F] bg-[#101D36]">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 bg-cyan-500/15 text-cyan-400 rounded-xl border border-cyan-500/30">
+            <div className="p-2 bg-[#C6A66B]/15 text-[#C6A66B] rounded-xl border border-[#C6A66B]/30">
               <AlertTriangle className="w-5 h-5" />
             </div>
             <div>
@@ -161,8 +161,8 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
 
         {/* Quick Presets */}
         <div className="px-6 pt-4 pb-2 border-b border-[#182E4F] bg-[#060B14]/60">
-          <div className="text-[11px] font-bold text-cyan-300 uppercase tracking-wider mb-2 flex items-center gap-1.5 font-mono">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="text-[11px] font-bold text-[#D4B77D] uppercase tracking-wider mb-2 flex items-center gap-1.5 font-mono">
+            <Sparkles className="w-3.5 h-3.5 text-[#C6A66B]" />
             1-Click Test Scenarios (Demo Presets):
           </div>
           <div className="flex flex-wrap gap-2">
@@ -171,7 +171,7 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
                 key={idx}
                 type="button"
                 onClick={() => handlePresetSelect(p)}
-                className="text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-[#13213B] border border-[#182E4F] text-slate-200 hover:text-cyan-300 hover:border-cyan-400 hover:bg-[#1A2D50] transition"
+                className="text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-[#13213B] border border-[#182E4F] text-slate-200 hover:text-[#D4B77D] hover:border-[#C6A66B] hover:bg-[#1A2D50] transition"
               >
                 {p.label}
               </button>
@@ -192,7 +192,7 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 placeholder="e.g. Flash Flood Inundation & Trapped Civilians"
-                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C6A66B]"
               />
             </div>
             <div>
@@ -202,7 +202,7 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
               <select
                 value={formData.category}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-400"
+                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-[#C6A66B]"
               >
                 <option value="Flood">Flood</option>
                 <option value="Fire">Fire</option>
@@ -225,7 +225,7 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               placeholder="Provide exact observations: water depth, smoke color, trapped individuals, collapsed elements..."
-              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C6A66B]"
             />
           </div>
 
@@ -240,7 +240,7 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
                 value={formData.location_name}
                 onChange={(e) => setFormData({ ...formData, location_name: e.target.value })}
                 placeholder="e.g. Riverside District, Sector 4"
-                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C6A66B]"
               />
             </div>
             <div>
@@ -252,7 +252,7 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
                 step="any"
                 value={formData.latitude}
                 onChange={(e) => setFormData({ ...formData, latitude: e.target.value })}
-                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-400 font-mono"
+                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-[#C6A66B] font-mono"
               />
             </div>
             <div>
@@ -264,7 +264,7 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
                 step="any"
                 value={formData.longitude}
                 onChange={(e) => setFormData({ ...formData, longitude: e.target.value })}
-                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-400 font-mono"
+                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-[#C6A66B] font-mono"
               />
             </div>
           </div>
@@ -279,7 +279,7 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
                 min="0"
                 value={formData.people_affected}
                 onChange={(e) => setFormData({ ...formData, people_affected: e.target.value })}
-                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-400"
+                className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-[#C6A66B]"
               />
             </div>
             <div>
@@ -292,9 +292,9 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
                   value={formData.image_url}
                   onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
                   placeholder="https://... or upload"
-                  className="flex-1 bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-400 text-xs truncate"
+                  className="flex-1 bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-[#C6A66B] text-xs truncate"
                 />
-                <label className="px-3 py-2 bg-[#13213B] hover:bg-[#1A2D50] text-cyan-300 rounded-xl cursor-pointer flex items-center gap-1 text-xs border border-[#182E4F] transition">
+                <label className="px-3 py-2 bg-[#13213B] hover:bg-[#1A2D50] text-[#D4B77D] rounded-xl cursor-pointer flex items-center gap-1 text-xs border border-[#182E4F] transition">
                   <Upload className="w-3.5 h-3.5" />
                   <span>{uploadingImage ? '...' : 'Upload'}</span>
                   <input type="file" accept="image/*" onChange={handleFileUpload} className="hidden" />
@@ -304,11 +304,11 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
           </div>
 
           {/* AI Trigger Option */}
-          <div className="p-3.5 bg-cyan-950/30 border border-cyan-500/40 rounded-xl flex items-center justify-between">
+          <div className="p-3.5 bg-[#48151D]/20 border border-[#C6A66B]/40 rounded-xl flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Sparkles className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+              <Sparkles className="w-5 h-5 text-[#C6A66B] flex-shrink-0" />
               <div>
-                <div className="text-xs font-bold text-cyan-300">Multi-Agent AI Pipeline Auto-Execution</div>
+                <div className="text-xs font-bold text-[#D4B77D]">Multi-Agent AI Pipeline Auto-Execution</div>
                 <div className="text-[11px] text-slate-300">
                   Runs Collection &rarr; Verification &rarr; Classification &rarr; Severity &rarr; Resources &rarr; Action Plan
                 </div>
@@ -321,7 +321,7 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
                 onChange={(e) => setTriggerAi(e.target.checked)}
                 className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan-500"></div>
+              <div className="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#C6A66B]"></div>
             </label>
           </div>
 
@@ -337,11 +337,11 @@ export function ReportIncidentModal({ isOpen, onClose, onCreated }) {
             <button
               type="submit"
               disabled={loading}
-              className="px-5 py-2.5 rounded-xl text-xs font-extrabold bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-500/30 flex items-center gap-2 transition disabled:opacity-50"
+              className="btn-cta px-5 py-2.5 rounded-xl text-xs font-extrabold flex items-center gap-2 transition disabled:opacity-50"
             >
               {loading ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-4 h-4 border-2 border-[#48151D] border-t-transparent rounded-full animate-spin"></div>
                   <span>Processing Multi-Agent Analysis...</span>
                 </>
               ) : (

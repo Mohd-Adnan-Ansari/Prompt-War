@@ -25,8 +25,8 @@ export function StatusBadge({ status, className = '' }) {
   const styles = {
     'Reported': 'bg-slate-800 text-slate-200 border-slate-600',
     'Under Investigation': 'bg-amber-500/20 text-amber-300 border-amber-500/40',
-    'Verified': 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40 font-semibold',
-    'Response in Progress': 'bg-cyan-500/25 text-white border-cyan-400 ring-1 ring-cyan-500/30 font-bold',
+    'Verified': 'bg-[#C6A66B]/15 text-[#D4B77D] border-[#C6A66B]/40 font-semibold',
+    'Response in Progress': 'bg-[#C6A66B]/25 text-white border-[#C6A66B] ring-1 ring-[#C6A66B]/30 font-bold',
     'Resolved': 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40',
   };
 
@@ -44,8 +44,8 @@ export function VerificationBadge({ status, score, className = '' }) {
   let icon = <HelpCircle className="w-3.5 h-3.5" />;
 
   if (status === 'Verified') {
-    badgeColor = 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40 font-semibold';
-    icon = <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />;
+    badgeColor = 'bg-[#C6A66B]/15 text-[#D4B77D] border-[#C6A66B]/40 font-semibold';
+    icon = <ShieldCheck className="w-3.5 h-3.5 text-[#C6A66B]" />;
   } else if (status === 'Unverified') {
     badgeColor = 'bg-red-500/15 text-red-300 border-red-500/30';
     icon = <AlertTriangle className="w-3.5 h-3.5 text-red-400" />;
@@ -56,7 +56,7 @@ export function VerificationBadge({ status, score, className = '' }) {
       {icon}
       <span>{status || 'Needs Review'}</span>
       {score !== undefined && (
-        <span className="opacity-90 text-[10px] bg-black/40 text-cyan-200 px-1 py-0.2 rounded font-mono font-bold">
+        <span className="opacity-90 text-[10px] bg-black/40 text-[#F2E8D9] px-1 py-0.2 rounded font-mono font-bold">
           {Math.round(score)}%
         </span>
       )}
@@ -66,7 +66,7 @@ export function VerificationBadge({ status, score, className = '' }) {
 
 export function RiskScoreGauge({ score = 50, size = 'md' }) {
   const rounded = Math.round(score);
-  let color = '#06B6D4';
+  let color = '#C6A66B';
   if (rounded >= 75) color = '#EF4444';
   else if (rounded >= 55) color = '#F97316';
   else if (rounded >= 35) color = '#FACC15';

@@ -67,17 +67,17 @@ export function AgentPipelineVisualizer({
     : pipelineSteps[0];
 
   return (
-    <div className="bg-[#0C1527] border border-cyan-500/30 rounded-2xl p-5 shadow-2xl">
+    <div className="bg-[#0C1527] border border-[#C6A66B]/30 rounded-2xl p-5 shadow-2xl">
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <div className="flex items-center gap-2.5">
-          <div className="p-2 bg-cyan-500/15 text-cyan-400 rounded-xl border border-cyan-500/30">
+          <div className="p-2 bg-[#C6A66B]/15 text-[#C6A66B] rounded-xl border border-[#C6A66B]/30">
             <Sparkles className="w-5 h-5" />
           </div>
           <div>
             <h3 className="text-sm font-bold text-white flex items-center gap-2">
               Multi-Agent Orchestration Pipeline
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#C6A66B]/20 text-[#D4B77D] border border-[#C6A66B]/40 font-bold">
                 6 Agents Active
               </span>
             </h3>
@@ -85,7 +85,7 @@ export function AgentPipelineVisualizer({
           </div>
         </div>
 
-        <div className="text-xs text-cyan-300 font-mono bg-[#060B14] px-3 py-1.5 rounded-xl border border-cyan-500/30">
+        <div className="text-xs text-[#D4B77D] font-mono bg-[#060B14] px-3 py-1.5 rounded-xl border border-[#C6A66B]/30">
           Execution Flow: 1 &rarr; 2 &rarr; 3 &rarr; 4 &rarr; 5 &rarr; 6
         </div>
       </div>
@@ -107,25 +107,25 @@ export function AgentPipelineVisualizer({
               }}
               className={`relative text-left p-3.5 rounded-2xl border transition-all duration-200 ${
                 isSelected
-                  ? 'bg-[#13213B] border-cyan-400 shadow-lg shadow-cyan-500/20 ring-1 ring-cyan-400'
-                  : 'bg-[#060B14] border-[#182E4F] hover:border-cyan-500/40 hover:bg-[#0F1D38]'
+                  ? 'bg-[#13213B] border-[#C6A66B] shadow-lg shadow-[#C6A66B]/20 ring-1 ring-[#C6A66B]'
+                  : 'bg-[#060B14] border-[#182E4F] hover:border-[#C6A66B]/40 hover:bg-[#0F1D38]'
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-bold font-mono text-cyan-400">
+                <span className="text-[10px] font-bold font-mono text-[#C6A66B]">
                   AGENT 0{idx + 1}
                 </span>
                 {isCompleted ? (
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400" />
+                  <CheckCircle2 className="w-4 h-4 text-[#C6A66B]" />
                 ) : isNeedsReview ? (
                   <AlertCircle className="w-4 h-4 text-amber-400" />
                 ) : (
-                  <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#C6A66B] animate-pulse" />
                 )}
               </div>
 
               <div className="flex items-center gap-2 mb-1">
-                <Icon className={`w-4 h-4 ${isSelected ? 'text-cyan-400' : 'text-slate-300'}`} />
+                <Icon className={`w-4 h-4 ${isSelected ? 'text-[#C6A66B]' : 'text-slate-300'}`} />
                 <span className="text-xs font-bold text-white truncate">
                   {step.agent_name.replace(' Agent', '')}
                 </span>
@@ -135,7 +135,7 @@ export function AgentPipelineVisualizer({
                 <span
                   className={
                     isCompleted
-                      ? 'text-cyan-300 font-semibold'
+                      ? 'text-[#D4B77D] font-semibold'
                       : isNeedsReview
                       ? 'text-amber-400'
                       : 'text-slate-400'
@@ -143,7 +143,7 @@ export function AgentPipelineVisualizer({
                 >
                   {step.status}
                 </span>
-                <span className="flex items-center gap-0.5 text-cyan-400">
+                <span className="flex items-center gap-0.5 text-[#C6A66B]">
                   <Clock className="w-2.5 h-2.5" />
                   {step.execution_time_ms}ms
                 </span>
@@ -158,17 +158,17 @@ export function AgentPipelineVisualizer({
         <div className="p-4 bg-[#060B14] border border-[#182E4F] rounded-2xl text-xs space-y-3">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#182E4F] pb-2.5">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-cyan-400 font-bold uppercase text-[11px]">
+              <span className="font-mono text-[#C6A66B] font-bold uppercase text-[11px]">
                 Active Inspector:
               </span>
               <span className="font-bold text-white text-sm">{activeStep.agent_name}</span>
             </div>
             <div className="flex items-center gap-2 font-mono text-[11px]">
               <span className="text-slate-400">Latency:</span>
-              <span className="text-cyan-400 font-bold">{activeStep.execution_time_ms} ms</span>
+              <span className="text-[#C6A66B] font-bold">{activeStep.execution_time_ms} ms</span>
               <span className="text-slate-600">|</span>
               <span className="text-slate-400">Status:</span>
-              <span className="text-cyan-300 font-semibold">{activeStep.status}</span>
+              <span className="text-[#D4B77D] font-semibold">{activeStep.status}</span>
             </div>
           </div>
 
@@ -179,8 +179,8 @@ export function AgentPipelineVisualizer({
           {/* Structured Output Preview */}
           {activeStep.output && Object.keys(activeStep.output).length > 0 && (
             <div>
-              <div className="text-[11px] font-bold text-cyan-300 uppercase tracking-wider mb-1.5 flex items-center gap-1 font-mono">
-                <Info className="w-3.5 h-3.5 text-cyan-400" />
+              <div className="text-[11px] font-bold text-[#D4B77D] uppercase tracking-wider mb-1.5 flex items-center gap-1 font-mono">
+                <Info className="w-3.5 h-3.5 text-[#C6A66B]" />
                 Structured JSON Output Telemetry:
               </div>
               <pre className="bg-[#0C1527] border border-[#182E4F] p-3 rounded-xl text-white font-mono text-[11px] overflow-x-auto max-h-48 leading-tight">

@@ -84,7 +84,7 @@ export function ResourcesPage() {
         <div>
           <h1 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2">
             <span>Emergency Resource Management</span>
-            <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">
+            <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#C6A66B]/15 text-[#C6A66B] border border-[#C6A66B]/30">
               {filteredResources.length} Assets
             </span>
           </h1>
@@ -98,7 +98,7 @@ export function ResourcesPage() {
             <button
               onClick={() => setViewMode('table')}
               className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 font-semibold transition ${
-                viewMode === 'table' ? 'bg-[#13213B] text-cyan-400 border border-cyan-500/40' : 'text-slate-400 hover:text-white'
+                viewMode === 'table' ? 'bg-[#48151D] text-[#C6A66B] border border-[#C6A66B]/40' : 'text-slate-400 hover:text-white'
               }`}
             >
               <List className="w-3.5 h-3.5" />
@@ -107,7 +107,7 @@ export function ResourcesPage() {
             <button
               onClick={() => setViewMode('map')}
               className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 font-semibold transition ${
-                viewMode === 'map' ? 'bg-[#13213B] text-cyan-400 border border-cyan-500/40' : 'text-slate-400 hover:text-white'
+                viewMode === 'map' ? 'bg-[#48151D] text-[#C6A66B] border border-[#C6A66B]/40' : 'text-slate-400 hover:text-white'
               }`}
             >
               <Map className="w-3.5 h-3.5" />
@@ -118,8 +118,8 @@ export function ResourcesPage() {
       </div>
 
       {/* Prototype Disclaimer */}
-      <div className="p-3 bg-[#0C1527] border border-cyan-500/30 rounded-xl text-xs text-slate-300 flex items-center gap-2.5">
-        <ShieldAlert className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+      <div className="p-3 bg-[#0C1527] border border-[#C6A66B]/30 rounded-xl text-xs text-slate-300 flex items-center gap-2.5">
+        <ShieldAlert className="w-4 h-4 text-[#C6A66B] flex-shrink-0" />
         <span>
           <strong>Simulated Fleet:</strong> All emergency fleet and hospital telemetry is generated for the CrisisAI prototype demonstration and does not connect to live 911 dispatch networks.
         </span>
@@ -135,7 +135,7 @@ export function ResourcesPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by asset name, ID, base station..."
-              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#C6A66B]"
             />
           </div>
 
@@ -143,7 +143,7 @@ export function ResourcesPage() {
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400"
+              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-[#C6A66B]"
             >
               {categories.map((c) => (
                 <option key={c} value={c}>{c === 'All' ? 'All Categories' : c}</option>
@@ -155,7 +155,7 @@ export function ResourcesPage() {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400"
+              className="w-full bg-[#060B14] border border-[#182E4F] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-[#C6A66B]"
             >
               {statuses.map((s) => (
                 <option key={s} value={s}>{s === 'All' ? 'All Statuses' : s}</option>
@@ -184,7 +184,7 @@ export function ResourcesPage() {
               <tbody className="divide-y divide-[#182E4F] text-slate-200">
                 {filteredResources.map((res) => (
                   <tr key={res.id} className="hover:bg-[#13213B]/60 transition">
-                    <td className="px-4 py-3 font-mono font-bold text-cyan-400 whitespace-nowrap">
+                    <td className="px-4 py-3 font-mono font-bold text-[#C6A66B] whitespace-nowrap">
                       {res.id}
                     </td>
                     <td className="px-4 py-3">
@@ -207,7 +207,7 @@ export function ResourcesPage() {
                         onChange={(e) => handleStatusUpdate(res.id, e.target.value)}
                         className={`text-xs font-semibold rounded-lg px-2.5 py-1 border focus:outline-none cursor-pointer ${
                           res.status === 'Available'
-                            ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30'
+                            ? 'bg-[#C6A66B]/15 text-[#D4B77D] border-[#C6A66B]/30'
                             : res.status === 'Deployed'
                             ? 'bg-purple-500/15 text-purple-300 border-purple-500/30'
                             : 'bg-slate-800 text-slate-300 border-slate-700'
@@ -221,7 +221,7 @@ export function ResourcesPage() {
                     </td>
                     <td className="px-4 py-3 whitespace-nowrap">
                       {res.assigned_incident_id ? (
-                        <span className="font-mono text-cyan-300 font-bold bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-500/30">
+                        <span className="font-mono text-[#D4B77D] font-bold bg-[#48151D]/30 px-2 py-0.5 rounded border border-[#C6A66B]/30">
                           {res.assigned_incident_id}
                         </span>
                       ) : (
@@ -231,7 +231,7 @@ export function ResourcesPage() {
                     <td className="px-4 py-3 text-right whitespace-nowrap">
                       <button
                         onClick={() => setSelectedResourceForAssign(res)}
-                        className="px-3 py-1.5 bg-cyan-500/20 hover:bg-cyan-500 text-cyan-300 hover:text-slate-950 font-bold rounded-lg text-xs transition border border-cyan-500/30"
+                        className="btn-primary px-3 py-1.5 rounded-lg text-xs font-bold transition"
                       >
                         Assign / Deploy
                       </button>

@@ -89,13 +89,13 @@ export function CrisisAIAssistantDrawer() {
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-[#182E4F] bg-[#101D36]">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-cyan-500/15 text-cyan-400 rounded-xl border border-cyan-500/30">
+          <div className="p-2 bg-[#C6A66B]/15 text-[#C6A66B] rounded-xl border border-[#C6A66B]/30">
             <Bot className="w-5 h-5" />
           </div>
           <div>
             <h3 className="text-sm font-bold text-white flex items-center gap-2">
               CrisisAI Assistant
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-[#C6A66B] animate-pulse"></span>
             </h3>
             <p className="text-[11px] text-slate-400">Grounded in live database telemetry & multi-agent outputs</p>
           </div>
@@ -113,9 +113,9 @@ export function CrisisAIAssistantDrawer() {
 
       {/* Incident Focus Pill if any */}
       {assistantIncidentFocus && (
-        <div className="px-5 py-2 bg-cyan-950/40 border-b border-cyan-500/30 flex items-center justify-between text-xs text-cyan-300">
+        <div className="px-5 py-2 bg-[#48151D]/30 border-b border-[#C6A66B]/30 flex items-center justify-between text-xs text-[#D4B77D]">
           <div className="flex items-center gap-1.5 truncate">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+            <Sparkles className="w-3.5 h-3.5 text-[#C6A66B] flex-shrink-0" />
             <span className="truncate">
               Focus: <strong className="text-white">[{assistantIncidentFocus.id}]</strong> {assistantIncidentFocus.title}
             </span>
@@ -139,7 +139,7 @@ export function CrisisAIAssistantDrawer() {
             <div
               className={`max-w-[90%] rounded-2xl px-4 py-3 text-xs leading-relaxed ${
                 msg.role === 'user'
-                  ? 'bg-cyan-500 text-slate-950 font-medium rounded-br-none shadow-md shadow-cyan-500/20'
+                  ? 'bg-[#C6A66B] text-[#48151D] font-medium rounded-br-none shadow-md shadow-[#C6A66B]/20'
                   : 'bg-[#101D36] border border-[#182E4F] text-slate-100 rounded-bl-none shadow-lg'
               }`}
             >
@@ -151,7 +151,7 @@ export function CrisisAIAssistantDrawer() {
               {/* Clickable Referenced Incidents */}
               {msg.referenced_incidents && msg.referenced_incidents.length > 0 && (
                 <div className="mt-3 pt-2.5 border-t border-[#182E4F] space-y-1.5">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-cyan-400">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#C6A66B]">
                     Referenced Incidents (Click to Inspect):
                   </div>
                   <div className="flex flex-wrap gap-1.5">
@@ -162,7 +162,7 @@ export function CrisisAIAssistantDrawer() {
                           setIsAssistantOpen(false);
                           navigate(`/incidents/${inc.id}`);
                         }}
-                        className="flex items-center gap-1 px-2.5 py-1 rounded bg-[#060B14] border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500 hover:text-slate-950 font-mono text-[11px] transition"
+                        className="flex items-center gap-1 px-2.5 py-1 rounded bg-[#060B14] border border-[#C6A66B]/30 text-[#D4B77D] hover:bg-[#C6A66B] hover:text-[#48151D] font-mono text-[11px] transition"
                       >
                         <span>{inc.id}</span>
                         <ArrowRight className="w-3 h-3" />
@@ -180,7 +180,7 @@ export function CrisisAIAssistantDrawer() {
                   <button
                     key={aIdx}
                     onClick={() => handleSend(action)}
-                    className="text-[11px] px-2.5 py-1 rounded-full bg-[#101D36] border border-[#182E4F] text-slate-300 hover:border-cyan-400 hover:text-cyan-300 hover:bg-[#13213B] transition text-left"
+                    className="text-[11px] px-2.5 py-1 rounded-full bg-[#101D36] border border-[#182E4F] text-slate-300 hover:border-[#C6A66B] hover:text-[#D4B77D] hover:bg-[#13213B] transition text-left"
                   >
                     &bull; {action}
                   </button>
@@ -191,8 +191,8 @@ export function CrisisAIAssistantDrawer() {
         ))}
 
         {loading && (
-          <div className="flex items-center gap-2 p-3 bg-[#101D36] border border-[#182E4F] rounded-xl text-xs text-cyan-400 max-w-[200px]">
-            <div className="w-3.5 h-3.5 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
+          <div className="flex items-center gap-2 p-3 bg-[#101D36] border border-[#182E4F] rounded-xl text-xs text-[#C6A66B] max-w-[200px]">
+            <div className="w-3.5 h-3.5 border-2 border-[#C6A66B] border-t-transparent rounded-full animate-spin"></div>
             <span>Querying DB telemetry...</span>
           </div>
         )}
@@ -214,12 +214,12 @@ export function CrisisAIAssistantDrawer() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask about incidents, resources, flood reports, summaries..."
-            className="flex-1 bg-[#060B14] border border-[#182E4F] rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+            className="flex-1 bg-[#060B14] border border-[#182E4F] rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#C6A66B]"
           />
           <button
             type="submit"
             disabled={!input.trim() || loading}
-            className="p-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl transition disabled:opacity-40 shadow-lg shadow-cyan-500/20"
+            className="p-2.5 bg-[#C6A66B] hover:bg-[#D4B77D] text-[#48151D] font-bold rounded-xl transition disabled:opacity-40 shadow-lg shadow-[#C6A66B]/20"
           >
             <Send className="w-4 h-4" />
           </button>
@@ -227,7 +227,7 @@ export function CrisisAIAssistantDrawer() {
 
         <div className="flex items-center justify-between text-[10px] text-slate-400 mt-2 px-1">
           <span>Explainable AI &bull; Grounded in DB</span>
-          <span className="flex items-center gap-1 text-cyan-400/90 font-medium">
+          <span className="flex items-center gap-1 text-[#C6A66B]/90 font-medium">
             <ShieldAlert className="w-3 h-3" />
             Human approval required
           </span>

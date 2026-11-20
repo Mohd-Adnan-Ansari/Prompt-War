@@ -8,18 +8,36 @@ export default {
   theme: {
     extend: {
       colors: {
+        plum: {
+          DEFAULT: '#48151D',
+          dark: '#350F15',
+          light: '#5E1C26',
+          hover: '#3D1219',
+        },
+        cream: {
+          DEFAULT: '#F2E8D9',
+          light: '#FAF5EE',
+          muted: '#E5D7C3',
+        },
+        taupe: {
+          DEFAULT: '#A0927E',
+          muted: '#847563',
+          light: '#B5A997',
+          hover: '#8E806D',
+        },
+        gold: {
+          DEFAULT: '#C6A66B',
+          bright: '#D4B77D',
+          hover: '#D4B77D',
+          light: '#EAD7AF',
+          muted: 'rgba(198, 166, 107, 0.4)',
+        },
         crisis: {
           bg: "#060B14",
           surface: "#0C1527",
           surfaceHover: "#13213B",
           surfaceAlt: "#101D36",
           border: "#182E4F",
-          borderCyan: "rgba(6, 182, 212, 0.25)",
-          borderCyanHover: "#06B6D4",
-          cyan: "#06B6D4",
-          cyanLight: "#22D3EE",
-          cyanHover: "#0891B2",
-          cyanGlow: "rgba(6, 182, 212, 0.35)",
           critical: "#EF4444",
           criticalGlow: "rgba(239, 68, 68, 0.25)",
           high: "#F97316",

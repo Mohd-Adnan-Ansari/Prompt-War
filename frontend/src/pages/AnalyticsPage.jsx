@@ -87,7 +87,7 @@ export function AnalyticsPage() {
         <div>
           <h1 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2">
             <span>Reports & Disaster Analytics</span>
-            <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">
+            <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#C6A66B]/15 text-[#C6A66B] border border-[#C6A66B]/30">
               Operational Telemetry
             </span>
           </h1>
@@ -100,14 +100,14 @@ export function AnalyticsPage() {
           <button
             onClick={handleGenerateSitrep}
             disabled={generatingSitrep}
-            className="px-3.5 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl text-xs flex items-center gap-1.5 transition disabled:opacity-50 shadow-lg shadow-cyan-500/25"
+            className="btn-cta px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition disabled:opacity-50"
           >
             <Sparkles className={`w-3.5 h-3.5 ${generatingSitrep ? 'animate-spin' : ''}`} />
             <span>Generate Live SITREP</span>
           </button>
           <button
             onClick={handlePrint}
-            className="px-3.5 py-2 bg-[#101D36] hover:bg-[#13213B] text-white border border-[#182E4F] hover:border-cyan-400 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition"
+            className="btn-outline px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition"
           >
             <Printer className="w-3.5 h-3.5" />
             <span>Print Report</span>
@@ -123,9 +123,9 @@ export function AnalyticsPage() {
             <div className="text-3xl font-extrabold text-white font-mono mt-1">
               {analytics?.total_incidents || incidents.length}
             </div>
-            <div className="text-[11px] text-cyan-400 mt-0.5">&bull; 100% processed by 6 AI agents</div>
+            <div className="text-[11px] text-[#C6A66B] mt-0.5">&bull; 100% processed by 6 AI agents</div>
           </div>
-          <div className="p-3 bg-cyan-500/15 text-cyan-400 rounded-xl border border-cyan-500/30">
+          <div className="p-3 bg-[#C6A66B]/15 text-[#C6A66B] rounded-xl border border-[#C6A66B]/30">
             <Layers className="w-6 h-6" />
           </div>
         </div>
@@ -133,12 +133,12 @@ export function AnalyticsPage() {
         <div className="p-4 bg-[#0C1527] border border-[#182E4F] rounded-2xl shadow-xl flex items-center justify-between">
           <div>
             <div className="text-xs text-slate-400 font-semibold uppercase font-mono">Simulated Response Time</div>
-            <div className="text-3xl font-extrabold text-cyan-300 font-mono mt-1">
+            <div className="text-3xl font-extrabold text-[#D4B77D] font-mono mt-1">
               {analytics?.avg_response_time_min || 11.2} <span className="text-sm font-normal text-slate-400">mins</span>
             </div>
             <div className="text-[11px] text-slate-400 mt-0.5">&bull; 34% faster than manual routing</div>
           </div>
-          <div className="p-3 bg-cyan-500/15 text-cyan-300 rounded-xl border border-cyan-500/30">
+          <div className="p-3 bg-[#C6A66B]/15 text-[#D4B77D] rounded-xl border border-[#C6A66B]/30">
             <Clock className="w-6 h-6" />
           </div>
         </div>
@@ -151,7 +151,7 @@ export function AnalyticsPage() {
             </div>
             <div className="text-[11px] text-slate-400 mt-0.5">&bull; Triage to de-escalation complete</div>
           </div>
-          <div className="p-3 bg-cyan-500/15 text-cyan-400 rounded-xl border border-cyan-500/30">
+          <div className="p-3 bg-[#C6A66B]/15 text-[#C6A66B] rounded-xl border border-[#C6A66B]/30">
             <CheckCircle2 className="w-6 h-6" />
           </div>
         </div>
@@ -166,7 +166,7 @@ export function AnalyticsPage() {
               <h3 className="text-sm font-bold text-white">Weekly Incident Frequency</h3>
               <p className="text-xs text-slate-400">Total volume logged vs. closed cases</p>
             </div>
-            <span className="text-xs font-mono text-cyan-400">Past 7 Days</span>
+            <span className="text-xs font-mono text-[#C6A66B]">Past 7 Days</span>
           </div>
 
           <div className="h-64 w-full">
@@ -174,8 +174,8 @@ export function AnalyticsPage() {
               <AreaChart data={analytics?.daily_trends || []}>
                 <defs>
                   <linearGradient id="colorInc" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#06B6D4" stopOpacity={0.4} />
-                    <stop offset="95%" stopColor="#06B6D4" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#C6A66B" stopOpacity={0.4} />
+                    <stop offset="95%" stopColor="#C6A66B" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <XAxis dataKey="day" stroke="#64748B" fontSize={11} />
@@ -183,7 +183,7 @@ export function AnalyticsPage() {
                 <Tooltip
                   contentStyle={{ backgroundColor: '#0C1527', borderColor: '#182E4F', borderRadius: '8px', fontSize: '12px', color: '#fff' }}
                 />
-                <Area type="monotone" dataKey="incidents" stroke="#06B6D4" strokeWidth={2} fillOpacity={1} fill="url(#colorInc)" />
+                <Area type="monotone" dataKey="incidents" stroke="#C6A66B" strokeWidth={2} fillOpacity={1} fill="url(#colorInc)" />
                 <Area type="monotone" dataKey="resolved" stroke="#22C55E" fillOpacity={0.15} fill="#22C55E" />
               </AreaChart>
             </ResponsiveContainer>
@@ -197,7 +197,7 @@ export function AnalyticsPage() {
               <h3 className="text-sm font-bold text-white">Verification Reliability Statistics</h3>
               <p className="text-xs text-slate-400">Agent 02 automated credibility breakdown</p>
             </div>
-            <span className="text-xs font-mono text-cyan-400">Telemetry</span>
+            <span className="text-xs font-mono text-[#C6A66B]">Telemetry</span>
           </div>
 
           <div className="h-64 w-full">
@@ -208,7 +208,7 @@ export function AnalyticsPage() {
                 <Tooltip
                   contentStyle={{ backgroundColor: '#0C1527', borderColor: '#182E4F', borderRadius: '8px', fontSize: '12px', color: '#fff' }}
                 />
-                <Bar dataKey="count" fill="#06B6D4" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="count" fill="#C6A66B" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -217,11 +217,11 @@ export function AnalyticsPage() {
 
       {/* AI-Powered Situation Report (SITREP) Document */}
       {sitrep && (
-        <div className="bg-[#0C1527] border border-cyan-500/40 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
+        <div className="bg-[#0C1527] border border-[#C6A66B]/40 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
           {/* Sitrep Document Header */}
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#182E4F] pb-4">
             <div>
-              <div className="text-[11px] font-mono font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
+              <div className="text-[11px] font-mono font-bold text-[#C6A66B] uppercase tracking-wider flex items-center gap-1.5">
                 <FileText className="w-4 h-4" />
                 <span>OFFICIAL SITUATION REPORT (SITREP)</span>
               </div>
@@ -232,7 +232,7 @@ export function AnalyticsPage() {
             </div>
 
             <div className="text-right">
-              <span className="text-xs font-mono px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-bold">
+              <span className="text-xs font-mono px-3 py-1 rounded-full bg-[#C6A66B]/15 text-[#D4B77D] border border-[#C6A66B]/30 font-bold">
                 MULTI-AGENT SYNTHESIS
               </span>
             </div>
@@ -276,9 +276,9 @@ export function AnalyticsPage() {
                 <div key={idx} className="p-3 bg-[#060B14] border border-[#182E4F] rounded-xl text-xs space-y-1">
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-white">{hot.name}</span>
-                    <span className="font-mono text-cyan-400">{hot.incident_count} events</span>
+                    <span className="font-mono text-[#C6A66B]">{hot.incident_count} events</span>
                   </div>
-                  <div className="text-[11px] text-cyan-300">{hot.threat_level}</div>
+                  <div className="text-[11px] text-[#D4B77D]">{hot.threat_level}</div>
                 </div>
               ))}
             </div>
@@ -291,8 +291,8 @@ export function AnalyticsPage() {
             </h3>
             <div className="space-y-2">
               {sitrep.recommended_priorities?.map((p, idx) => (
-                <div key={idx} className="p-3 bg-[#060B14] border border-cyan-500/30 rounded-xl text-xs text-white flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center flex-shrink-0 text-[10px] border border-cyan-500/30">
+                <div key={idx} className="p-3 bg-[#060B14] border border-[#C6A66B]/30 rounded-xl text-xs text-white flex items-start gap-2.5">
+                  <span className="w-5 h-5 rounded-full bg-[#C6A66B]/20 text-[#C6A66B] font-mono font-bold flex items-center justify-center flex-shrink-0 text-[10px] border border-[#C6A66B]/30">
                     {idx + 1}
                   </span>
                   <span>{p}</span>
@@ -303,7 +303,7 @@ export function AnalyticsPage() {
 
           {/* Document Disclaimer */}
           <div className="p-3 bg-[#060B14] border border-[#182E4F] rounded-xl text-[11px] text-slate-400 flex items-start gap-2">
-            <ShieldAlert className="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5" />
+            <ShieldAlert className="w-4 h-4 text-[#C6A66B] flex-shrink-0 mt-0.5" />
             <span>{sitrep.disclaimer}</span>
           </div>
         </div>

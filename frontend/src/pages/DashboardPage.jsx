@@ -102,9 +102,9 @@ export function DashboardPage() {
       />
 
       {/* Top Banner / AI Situation Summary */}
-      <div className="p-4 sm:p-5 bg-gradient-to-r from-[#0C1527] via-[#101D36] to-[#0C1527] border border-cyan-500/40 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="p-4 sm:p-5 bg-gradient-to-r from-[#0C1527] via-[#101D36] to-[#0C1527] border border-[#C6A66B]/40 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex items-start gap-3.5">
-          <div className="p-2.5 bg-cyan-500/15 text-cyan-400 rounded-xl border border-cyan-500/30 flex-shrink-0 mt-0.5">
+          <div className="p-2.5 bg-[#48151D] text-[#C6A66B] rounded-xl border border-[#C6A66B]/30 flex-shrink-0 mt-0.5">
             <Sparkles className="w-5 h-5" />
           </div>
           <div>
@@ -112,7 +112,7 @@ export function DashboardPage() {
               <h2 className="text-sm font-bold text-white uppercase tracking-wider font-mono">
                 AI Situation Telemetry
               </h2>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-semibold border border-cyan-500/30">
+              <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#48151D] text-[#C6A66B] font-bold border border-[#C6A66B]/40">
                 Live Analysis
               </span>
             </div>
@@ -124,17 +124,19 @@ export function DashboardPage() {
         </div>
 
         <div className="flex items-center gap-2.5 flex-shrink-0 self-end md:self-auto">
+          {/* Flood Demo button: Secondary button style */}
           <button
             onClick={handleRunFlood}
             disabled={runningDemo}
-            className="px-3 py-2 bg-cyan-500/20 hover:bg-cyan-500 text-cyan-300 hover:text-slate-950 border border-cyan-500/40 rounded-xl text-xs font-bold flex items-center gap-1.5 transition disabled:opacity-50"
+            className="px-3.5 py-2 btn-secondary rounded-xl text-xs flex items-center gap-1.5 transition"
           >
-            <Waves className="w-3.5 h-3.5" />
+            <Waves className="w-3.5 h-3.5 text-[#48151D]" />
             <span>{runningDemo ? 'Simulating...' : 'Flood Demo Scenario'}</span>
           </button>
+          {/* Refresh button: Icon button style */}
           <button
             onClick={refreshData}
-            className="p-2 bg-[#101D36] hover:bg-[#13213B] text-slate-200 rounded-xl border border-[#182E4F] hover:border-cyan-400 transition"
+            className="p-2.5 btn-icon rounded-xl transition"
             title="Refresh Live Telemetry"
           >
             <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
@@ -148,7 +150,7 @@ export function DashboardPage() {
           title="Active Incidents"
           value={kpis.total_active_incidents}
           icon={Activity}
-          color="cyan"
+          color="gold"
           subtitle="Monitored emergencies"
           onClick={() => navigate('/incidents')}
         />
@@ -172,7 +174,7 @@ export function DashboardPage() {
           title="Available Fleet"
           value={kpis.available_resources}
           icon={Truck}
-          color="purple"
+          color="taupe"
           subtitle="Ready for staging"
           onClick={() => navigate('/resources?status=Available')}
         />
@@ -200,12 +202,12 @@ export function DashboardPage() {
         <div className="lg:col-span-2 space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-cyan-400" />
+              <MapPin className="w-4 h-4 text-[#C6A66B]" />
               <h3 className="text-sm font-bold text-white">Live Incident & Tactical Map</h3>
             </div>
             <button
               onClick={() => navigate('/map')}
-              className="text-xs text-cyan-400 hover:text-cyan-300 flex items-center gap-1 font-semibold"
+              className="text-xs text-[#C6A66B] hover:text-[#D4B77D] hover:underline flex items-center gap-1 font-semibold transition"
             >
               <span>Full Screen Map</span>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -239,16 +241,16 @@ export function DashboardPage() {
               <div
                 key={inc.id}
                 onClick={() => navigate(`/incidents/${inc.id}`)}
-                className="p-3 bg-[#060B14] border border-[#182E4F] hover:border-cyan-400 rounded-xl transition cursor-pointer space-y-2 group"
+                className="p-3 bg-[#060B14] border border-[#182E4F] hover:border-[#C6A66B] rounded-xl transition cursor-pointer space-y-2 group"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs font-bold text-cyan-400 group-hover:text-cyan-300">
+                  <span className="font-mono text-xs font-bold text-[#C6A66B] group-hover:text-[#D4B77D]">
                     {inc.id}
                   </span>
                   <SeverityBadge severity={inc.severity} />
                 </div>
 
-                <h4 className="text-xs font-bold text-white leading-snug group-hover:text-cyan-300 transition line-clamp-2">
+                <h4 className="text-xs font-bold text-white leading-snug group-hover:text-[#D4B77D] transition line-clamp-2">
                   {inc.title}
                 </h4>
 
@@ -267,12 +269,13 @@ export function DashboardPage() {
             ))}
           </div>
 
+          {/* View All Incidents: Outline Button */}
           <button
             onClick={() => navigate('/incidents')}
-            className="w-full mt-3 py-2 bg-[#101D36] hover:bg-[#13213B] text-white border border-[#182E4F] hover:border-cyan-400/50 rounded-xl text-xs font-semibold text-center transition flex items-center justify-center gap-1.5"
+            className="w-full mt-3 py-2 btn-outline rounded-xl text-xs flex items-center justify-center gap-1.5 transition"
           >
             <span>View All {incidents.length} Incident Reports</span>
-            <ArrowRight className="w-3.5 h-3.5 text-cyan-400" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>
@@ -317,7 +320,7 @@ export function DashboardPage() {
                   <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: s.color }}></span>
                   <span className="text-white">{s.name}</span>
                 </span>
-                <span className="font-mono font-bold text-cyan-300">{s.value}</span>
+                <span className="font-mono font-bold text-[#C6A66B]">{s.value}</span>
               </div>
             ))}
           </div>
@@ -336,7 +339,7 @@ export function DashboardPage() {
                 <Tooltip
                   contentStyle={{ backgroundColor: '#0C1527', borderColor: '#182E4F', borderRadius: '8px', fontSize: '12px', color: '#fff' }}
                 />
-                <Bar dataKey="count" fill="#06B6D4" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="count" fill="#C6A66B" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -353,7 +356,7 @@ export function DashboardPage() {
               <h3 className="text-sm font-bold text-white">Tactical Resource Fleet</h3>
               <button
                 onClick={() => navigate('/resources')}
-                className="text-xs text-cyan-400 hover:underline font-semibold"
+                className="text-xs text-[#C6A66B] hover:text-[#D4B77D] hover:underline font-semibold"
               >
                 Manage &rarr;
               </button>
@@ -363,7 +366,7 @@ export function DashboardPage() {
             <div className="space-y-2.5">
               <div className="flex items-center justify-between p-2.5 bg-[#060B14] border border-[#182E4F] rounded-xl text-xs">
                 <span className="text-slate-200 font-medium">Ambulances & Medevac</span>
-                <span className="font-mono text-cyan-400 font-bold">
+                <span className="font-mono text-[#C6A66B] font-bold">
                   {resources.filter((r) => r.category === 'Ambulances' && r.status === 'Available').length} /{' '}
                   {resources.filter((r) => r.category === 'Ambulances').length} Available
                 </span>
@@ -371,7 +374,7 @@ export function DashboardPage() {
 
               <div className="flex items-center justify-between p-2.5 bg-[#060B14] border border-[#182E4F] rounded-xl text-xs">
                 <span className="text-slate-200 font-medium">Fire Engines & Ladders</span>
-                <span className="font-mono text-cyan-400 font-bold">
+                <span className="font-mono text-[#C6A66B] font-bold">
                   {resources.filter((r) => r.category.includes('Fire') && r.status === 'Available').length} /{' '}
                   {resources.filter((r) => r.category.includes('Fire')).length} Available
                 </span>
@@ -379,7 +382,7 @@ export function DashboardPage() {
 
               <div className="flex items-center justify-between p-2.5 bg-[#060B14] border border-[#182E4F] rounded-xl text-xs">
                 <span className="text-slate-200 font-medium">Flood Rescue Boats</span>
-                <span className="font-mono text-cyan-400 font-bold">
+                <span className="font-mono text-[#C6A66B] font-bold">
                   {resources.filter((r) => r.category.includes('boat') && r.status === 'Available').length} /{' '}
                   {resources.filter((r) => r.category.includes('boat')).length} Available
                 </span>
@@ -395,11 +398,12 @@ export function DashboardPage() {
           </div>
 
           <div className="pt-3 border-t border-[#182E4F] mt-4">
+            {/* View Full Asset Fleet: Outline Button */}
             <button
               onClick={() => navigate('/resources')}
-              className="w-full py-2 bg-[#101D36] hover:bg-[#13213B] text-white border border-[#182E4F] hover:border-cyan-400/50 rounded-xl text-xs font-semibold text-center transition"
+              className="w-full py-2 btn-outline rounded-xl text-xs flex items-center justify-center transition"
             >
-              View Full Asset Fleet &rarr;
+              <span>View Full Asset Fleet &rarr;</span>
             </button>
           </div>
         </div>
